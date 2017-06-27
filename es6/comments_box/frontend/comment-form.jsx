@@ -1,40 +1,38 @@
-import React from 'react';
+import React from 'react'
 
 export default class CommentForm extends React.Component {
   constructor(props) {
-      super(props);
+      super(props)
 
       this.state = {
         author: props.author,
         text: props.text
-      };
+      }
 
-      this.handleAuthorChange = this.handleAuthorChange.bind(this);
-
-      this.handleTextChange = this.handleTextChange.bind(this);
-
-      this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleAuthorChange = this.handleAuthorChange.bind(this)
+      this.handleTextChange   = this.handleTextChange.bind(this)
+      this.handleSubmit       = this.handleSubmit.bind(this)
   }
 
   handleAuthorChange(e) {
-    this.setState({ author: e.target.value });
+    this.setState({ author: e.target.value })
   }
 
   handleTextChange(e) {
-    this.setState({ text: e.target.value });
+    this.setState({ text: e.target.value })
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
 
-    var author = this.state.author.trim();
-    var text = this.state.text.trim();
+    let author = this.state.author.trim()
+    let text = this.state.text.trim()
 
     if(!text || !author) {
-      return;
+      return
     }
 
-    this.props.onCommentSubmit({ author: author, text: text });
+    this.props.onCommentSubmit({ author: author, text: text })
     this.setState({ author: '', text: '' })
   }
 
@@ -55,13 +53,13 @@ export default class CommentForm extends React.Component {
         />
         <input type='submit' value="Post" />
       </form>
-    );
+    )
   }
 }
 
 CommentForm.propTypes = {
   author: React.PropTypes.string,
   text: React.PropTypes.string
-};
+}
 
-CommentForm.defaultProps = { author: '', text: '' };
+CommentForm.defaultProps = { author: '', text: '' }

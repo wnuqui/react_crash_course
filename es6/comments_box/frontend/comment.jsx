@@ -1,10 +1,10 @@
-import React from 'react';
-import marked from 'marked';
+import React from 'react'
+import marked from 'marked'
 
 class Comment extends React.Component {
   rawMarkup() {
-    var rawMarkup = marked(this.props.children.toString(), { sanitize: true });
-    return { __html: rawMarkup };
+    const rawMarkup = marked(this.props.children.toString(), { sanitize: true })
+    return { __html: rawMarkup }
   }
 
   render() {
@@ -15,8 +15,8 @@ class Comment extends React.Component {
         </h2>
         <span dangerouslySetInnerHTML={ this.rawMarkup() } />
       </div>
-    );
+    )
   }
 }
 
-export default Comment;
+export default Comment
